@@ -1,5 +1,5 @@
 
-![MY_IMAGE](C:\Users\yamin\MY_IMAGE.jpg "Yamini Priya")
+![K_YAMINI_PRIYA]("C:\Users\yamin\OneDrive\Pictures\K_YAMINI_PRIYA.png")
 
  # Yamini Priya
 
