@@ -1,10 +1,10 @@
 
    Yamini Priya | IIT Goa
  
- * [About me](aboutme)
+ * [About me](about)
  * [Education](#education)
- * [Course @IIT Goa](course@iitgoa)
- * [Hobbies & Interests](hobbies&interests)
+ * [Course @IIT Goa](course)
+ * [Hobbies & Interests](hobbies)
  
  # About me
  ----------
