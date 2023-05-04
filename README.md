@@ -6,10 +6,10 @@
  * [Course @IIT Goa](course@iitgoa)
  * [Hobbies & Interests](hobbies&interests)
  
- # About me
+ ## About me
  ----------
 
-![Yamini_Priya]("C:\Users\yamin\Yamini_Priya.jpeg")
+![Yamini_Priya](Yamini_Priya.jpeg "Yamini Priya")
 
  1. My name is K.Yamini Priya.
  2. I am a student in the School of Mathematics and Computer Science at **IIT Goa**.
