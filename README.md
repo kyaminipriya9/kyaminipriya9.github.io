@@ -1,12 +1,12 @@
 
    Yamini Priya | IIT Goa
  
- * [About me]()
+ * [About me](#)
  * [Education](#education)
  * [Course @IIT Goa](course@iitgoa)
  * [Hobbies & Interests](hobbies&interests)
  
- ## About me
+ # About me
  ----------
 
 ![Yamini_Priya](Yamini_Priya.jpeg "Yamini Priya")
