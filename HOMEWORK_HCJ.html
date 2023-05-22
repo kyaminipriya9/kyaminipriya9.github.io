@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Drawing Board</title>
+    <script type="text/x-mathjax-config"
+        src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/MathJax.js?config=TeX-MML-AM_CHTML">
+            MathJax.Hub.Config({tex2jax: {inlineMath:[['$','$'],['\\(','\\)']]}};)
+           </script>
+</head>
+
+<body style="background-color:rgb(154, 208,210) ;">
+
+    <h1>Drawing Board</h1>
+    <p>This webpage helps you to visualize simple geometrical shapes such as circle and rectangle.</p>
+    <h2>Circle</h2>
+    <p>The <i>area</i> of a circle with radius <i>r</i> is given by <i>πr<sup>2</sup></i>.Similarly, the
+        <i>perimeter</i> of a
+        circle with radius <i>r</i> is given by 2<i>πr</i>.Now,let's visualize the circle using JavaScript and HTML.
+    </p>
+
+    <p>Enter the radius <i>r</i>: <input type="text"></p>
+    <button type="button">
+        Validate Radius
+    </button>
+    <button type="button">
+        Draw
+    </button>
+    <button type="button">
+        Compute Area/Perimeter
+    </button>
+
+    <p>Circle:NA.</p>
+    <canvas id="paper1" width="400px" height="400px" style="border:2px solid #f10909;">
+        Your browser does not support the HTML5 canvas tag.
+    </canvas>
+    <p>Paper size:400<i>px</i> X 400<i>px</i>.Max allowed radius:200.</p>
+    <p>
+        <center>Figure 1.Drawing board-Circle draw input and canvas(red box)</center>
+    </p>
+    <br>
+    <br>
+    <br>
+    <h2>Rectangle</h2>
+    <p>The <i>area</i> of a rectangle with width <i>w</i> and height <i>h</i>is given by <i>ab</i>.Similarly, the
+        <i>perimeter</i> of a
+        rectangle with width <i>a</i> and height <i>b</i> is given by 2(<i>w+h</i>).Now,let's visualize the rectangle
+        using JavaScript and HTML.
+    </p>
+
+    <p>Enter the width <i>w</i>: <input type="text"> Enter the height <i>h</i>: <input type="text"></p>
+    <button type="button">
+        Validate width/height
+    </button>
+    <button type="button">
+        Draw
+    </button>
+    <button type="button">
+        Compute Area/Perimeter
+    </button>
+
+    <p>Rectangle:NA.</p>
+    <canvas id="paper1" width="400px" height="400px" style="border:2px solid #f10909;">
+        Your browser does not support the HTML5 canvas tag.
+    </canvas>
+    <p>Paper size:600<i>px</i> X 400<i>px</i>.Max allowed width:600 and height:400.</p>
+    <hr>
+    <br>
+    <button type="button">
+        Clear Inputs
+    </button>
+    <p>
+        <center>Figure 2.Drawing board-Rectangle draw input and canvas(red box)</center>
+    </p>
+
+
+</body>
+
+</html>
