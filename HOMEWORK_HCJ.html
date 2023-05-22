@@ -1,79 +1,194 @@
 <!DOCTYPE html>
 <html>
-
 <head>
-    <title>Drawing Board</title>
-    <script type="text/x-mathjax-config"
-        src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/MathJax.js?config=TeX-MML-AM_CHTML">
-            MathJax.Hub.Config({tex2jax: {inlineMath:[['$','$'],['\\(','\\)']]}};)
-           </script>
-</head>
+    <head>
+        <title>Drawing Board</title>
+        <script type="text/x-mathjax-config"
+            src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/MathJax.js?config=TeX-MML-AM_CHTML">
+                MathJax.Hub.Config({tex2jax: {inlineMath:[['$','$'],['\\(','\\)']]}};)
+               </script>
+    </head>
+    
+    <body style="background-color:rgb(154, 208,210) ;">
+    
+        <h1>Drawing Board</h1>
+        <p>This webpage helps you to visualize simple geometrical shapes such as circle and rectangle.</p>
+        <h2>Circle</h2>
+        <p>The <i>area</i> of a circle with radius <i>r</i> is given by <i>πr<sup>2</sup></i>.Similarly, the
+            <i>perimeter</i> of a
+            circle with radius <i>r</i> is given by 2<i>πr</i>.Now,let's visualize the circle using JavaScript and HTML.
+        </p>
+    
 
-<body style="background-color:rgb(154, 208,210) ;">
-
-    <h1>Drawing Board</h1>
-    <p>This webpage helps you to visualize simple geometrical shapes such as circle and rectangle.</p>
-    <h2>Circle</h2>
-    <p>The <i>area</i> of a circle with radius <i>r</i> is given by <i>πr<sup>2</sup></i>.Similarly, the
-        <i>perimeter</i> of a
-        circle with radius <i>r</i> is given by 2<i>πr</i>.Now,let's visualize the circle using JavaScript and HTML.
-    </p>
-
-    <p>Enter the radius <i>r</i>: <input type="text"></p>
-    <button type="button">
-        Validate Radius
-    </button>
-    <button type="button">
-        Draw
-    </button>
-    <button type="button">
-        Compute Area/Perimeter
-    </button>
-
+  <div id="circle-container">
+    <label for="circleRadius">Radius:</label>
+    <input type="text" id="circleRadius">
+    <button id="drawCircle">Draw</button>
+    <button id="computeCircle">Compute Area/Perimeter</button>
     <p>Circle:NA.</p>
-    <canvas id="paper1" width="400px" height="400px" style="border:2px solid #f10909;">
-        Your browser does not support the HTML5 canvas tag.
-    </canvas>
-    <p>Paper size:400<i>px</i> X 400<i>px</i>.Max allowed radius:200.</p>
-    <p>
-        <center>Figure 1.Drawing board-Circle draw input and canvas(red box)</center>
-    </p>
-    <br>
-    <br>
-    <br>
-    <h2>Rectangle</h2>
-    <p>The <i>area</i> of a rectangle with width <i>w</i> and height <i>h</i>is given by <i>ab</i>.Similarly, the
-        <i>perimeter</i> of a
-        rectangle with width <i>a</i> and height <i>b</i> is given by 2(<i>w+h</i>).Now,let's visualize the rectangle
-        using JavaScript and HTML.
-    </p>
+   
+    
+   
+  </div>
+  <canvas id="circleCanvas" width="400px" height="400px" style="border:2px solid #f10909;">
+    Your browser does not support the HTML5 canvas tag.
+  </canvas>
+  <p>Paper size:400<i>px</i> X 400<i>px</i>.Max allowed radius:200.</p>
+    <p>Figure 1.Drawing board-Circle draw input and canvas(red box)</p>
 
-    <p>Enter the width <i>w</i>: <input type="text"> Enter the height <i>h</i>: <input type="text"></p>
-    <button type="button">
-        Validate width/height
-    </button>
-    <button type="button">
-        Draw
-    </button>
-    <button type="button">
-        Compute Area/Perimeter
-    </button>
-
+  <h2>Rectangle</h2>
+  <p>The <i>area</i> of a rectangle with width <i>w</i> and height <i>h</i> is given by <i>ab</i>.Similarly, the
+      <i>perimeter</i> of a
+      rectangle with width <i>a</i> and height <i>b</i> is given by 2(<i>w+h</i>).Now,let's visualize the rectangle
+      using JavaScript and HTML.
+  </p>
+  <div id="rectangle-container">
+    <label for="rectStartX">X-Coordinate:</label>
+    <input type="text" id="rectStartX" >
+    <label for="rectStartY">Y-Coordinate:</label>
+    <input type="text" id="rectStartY" >
+    <label for="rectWidth">Width:</label>
+    <input type="text" id="rectWidth" >
+    <label for="rectHeight">Height:</label>
+    <input type="text" id="rectHeight" >
+    <button id="drawRectangle">Draw</button>
+    <button id="computeRectangle">Compute Area/Perimeter</button>
     <p>Rectangle:NA.</p>
-    <canvas id="paper1" width="400px" height="400px" style="border:2px solid #f10909;">
-        Your browser does not support the HTML5 canvas tag.
+  
+   
+    <canvas id="rectangleCanvas" width="400px" height="400px" style="border:2px solid #f10909;">
+      Your browser does not support the HTML5 canvas tag.
     </canvas>
     <p>Paper size:600<i>px</i> X 400<i>px</i>.Max allowed width:600 and height:400.</p>
+    <p>Figure 2.Drawing board-Rectangle draw input and canvas(red box)</p>
     <hr>
-    <br>
-    <button type="button">
-        Clear Inputs
-    </button>
-    <p>
-        <center>Figure 2.Drawing board-Rectangle draw input and canvas(red box)</center>
-    </p>
+  </div>
 
+  <div id="output-container">
+    <h2>Output</h2>
+    <div id="output"></div>
+    <button id="clearInputs">Clear Inputs</button>
+  </div>
 
+  <script>
+    window.onload = function() {
+      var circleCanvas = document.getElementById('circleCanvas');
+      var circleCtx = circleCanvas.getContext('2d');
+    
+      var rectangleCanvas = document.getElementById('rectangleCanvas');
+      var rectangleCtx = rectangleCanvas.getContext('2d');
+    
+      // Function to draw a circle on the circle canvas
+      function drawCircle(radius) {
+        circleCtx.clearRect(0, 0, circleCanvas.width, circleCanvas.height);
+        circleCtx.beginPath();
+        circleCtx.arc(circleCanvas.width / 2, circleCanvas.height / 2, radius, 0, 2 * Math.PI);
+        circleCtx.stroke();
+      }
+    
+      // Function to draw a rectangle on the rectangle canvas
+      function drawRectangle(startX, startY, width, height) {
+        rectangleCtx.clearRect(0, 0, rectangleCanvas.width, rectangleCanvas.height);
+        rectangleCtx.beginPath();
+        rectangleCtx.rect(startX, startY, width, height);
+        rectangleCtx.stroke();
+      }
+    
+      // Function to compute the area of a circle
+      function computeCircleArea(radius) {
+        var area = Math.PI * radius * radius;
+        return area.toFixed(2);
+      }
+    
+      // Function to compute the perimeter of a circle
+      function computeCirclePerimeter(radius) {
+        var perimeter = 2 * Math.PI * radius;
+        return perimeter.toFixed(2);
+      }
+    
+      // Function to compute the area of a rectangle
+      function computeRectangleArea(width, height) {
+        var area = width * height;
+        return area.toFixed(2);
+      }
+    
+      // Function to compute the perimeter of a rectangle
+      function computeRectanglePerimeter(width, height) {
+        var perimeter = 2 * (width + height);
+        return perimeter.toFixed(2);
+      }
+    
+      // Function to display the area and perimeter in the output div
+      function displayOutput(area, perimeter) {
+        var outputDiv = document.getElementById('output');
+        outputDiv.innerHTML = 'Area: ' + area + '<br>Perimeter: ' + perimeter;
+      }
+    
+      // Function to clear all input fields and output div
+      function clearInputs() {
+        var inputs = document.getElementsByTagName('input');
+        for (var i = 0; i < inputs.length; i++) {
+          inputs[i].value = '';
+        }
+        var outputDiv = document.getElementById('output');
+        outputDiv.innerHTML = '';
+      }
+    
+      // Draw Circle button click event
+      document.getElementById('drawCircle').onclick = function() {
+        var radius = parseFloat(document.getElementById('circleRadius').value);
+        if (!isNaN(radius)) {
+          drawCircle(radius);
+        } else {
+          alert('Please enter a valid radius.');
+        }
+      };
+    
+      // Compute Circle Area/Perimeter button click event
+      document.getElementById('computeCircle').onclick = function() {
+        var radius = parseFloat(document.getElementById('circleRadius').value);
+        if (!isNaN(radius)) {
+          var area = computeCircleArea(radius);
+          var perimeter = computeCirclePerimeter(radius);
+          displayOutput(area, perimeter);
+        } else {
+          alert('Please enter a valid radius.');
+        }
+      };
+    
+      // Draw Rectangle button click event
+      document.getElementById('drawRectangle').onclick = function() {
+        var startX = parseFloat(document.getElementById('rectStartX').value);
+        var startY = parseFloat(document.getElementById('rectStartY').value);
+        var width = parseFloat(document.getElementById('rectWidth').value);
+        var height = parseFloat(document.getElementById('rectHeight').value);
+        if (!isNaN(startX) && !isNaN(startY) && !isNaN(width) && !isNaN(height)) {
+          drawRectangle(startX, startY, width, height);
+        } else {
+          alert('Please enter valid numeric values for all fields.');
+        }
+      };
+    
+      // Compute Rectangle Area/Perimeter button click event
+      document.getElementById('computeRectangle').onclick = function() {
+        var width = parseFloat(document.getElementById('rectWidth').value);
+        var height = parseFloat(document.getElementById('rectHeight').value);
+        if (!isNaN(width) && !isNaN(height)) {
+          var area = computeRectangleArea(width, height);
+          var perimeter = computeRectanglePerimeter(width, height);
+          displayOutput(area, perimeter);
+        } else {
+          alert('Please enter valid numeric values for width and height.');
+        }
+      };
+    
+      // Clear Inputs button click event
+      document.getElementById('clearInputs').onclick = function() {
+        clearInputs();
+        circleCtx.clearRect(0, 0, circleCanvas.width, circleCanvas.height);
+        rectangleCtx.clearRect(0, 0, rectangleCanvas.width, rectangleCanvas.height);
+      };
+    };
+  </script>
 </body>
-
 </html>
