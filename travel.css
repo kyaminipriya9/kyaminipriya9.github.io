@@ -10,7 +10,7 @@ body {
     text-align: center;
 }
 li {
-   display:inline;
+   display:inline-block;
    font-size: 18px;  
    margin-left: 12px;
    margin-top: 10px;
