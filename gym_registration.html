@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang = "en">
+    <head>
+        <meta charset="UTF-8">
+        <title>Registration Form</title>
+    </head>
+    <body>
+        <h1>Muscle Gym Member Registration</h1>
+        <form>
+            Name:
+            <input type="text" name="firstname" placeholder="First Name">
+            <input type="text" name="lastname" placeholder="Last Name">
+            <br/><br/>
+            Phone Number:
+            <input type="tel" name="phone number"><br/><br/>
+            Email:
+            <input type="email" name="email"><br/><br/>
+            Age:
+            <input type="number" name="age"><br/><br/>
+            Date of Birth:
+            <input type="date" name="date of birth"><br/><br/>
+            Gender:
+            <input type="radio" name="gender" value="male"> Male
+            <input type="radio" name="gender" value="female"> Female
+            <br/>
+            <br/>
+            Address:<br/>
+            <textarea rows="3" cols="30" name="'address"></textarea><br/><br/>
+
+            <fieldset>
+                <legend>Membership Details</legend><br/>
+                Joining Date:
+                <input type="date" name="joining date"><br/><br/>
+                Membership Type:
+                <input type="radio" name="membership" value="basic"> Basic(Gym)
+                <input type="radio" name="membership" value="gold"> Gold(Gym+Cardio)
+                <input type="radio" name="membership" value="premium"> Premium(Gym+Cardio+Crossfit)
+                <br/><br/>
+                Duration:
+                <select name="duration">
+                    <option value="1">1 Month</option>
+                    <option value="3">3 Months</option>
+                    <option value="6">6 Months</option>
+                    <option value="12">1 Year</option>
+                </select>
+                <br/><br/>
+                Are you interested in any of the following?
+                <input type="checkbox" name="interests" value="Yoga"> Yoga
+                <input type="checkbox" name="interests" value="Live PT Trial"> Live PT Trial
+                <input type="checkbox" name="interests" value="Zumba"> Zumba
+                <input type="checkbox" name="interests" value="Piloxing"> Piloxing
+                <input type="checkbox" name="interests" value="Diet Plan"> Diet Plan
+            </fieldset>
+            <br/><br/>
+            <input type="submit" value="Submit">
+            <input type="reset" value="Reset">
+            <br/><br/>
+            <a href="C:\Users\yamin\OneDrive\Desktop\Webd\gym_homepage.html">Back</a>
+        </form>
+    </body>
+</html>
